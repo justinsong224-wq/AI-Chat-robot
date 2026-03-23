@@ -1,0 +1,37 @@
+# ── 虚拟环境 ──
+# 体积很大（几百MB），且每台电脑路径不同，不应上传
+venv/
+.venv/
+env/
+
+# ── 环境变量文件 ──
+# 里面有 API Key 等敏感信息，绝对不能上传到 GitHub
+.env
+.env.local
+.env.production
+
+# ── 数据库文件 ──
+# 包含用户聊天记录，属于隐私数据，不上传
+# 克隆项目后首次运行会自动创建
+chat.db
+
+# ── Python 编译缓存 ──
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# ── IDE 配置文件 ──
+# PyCharm 本地配置，不同开发者设置不同，不上传
+.idea/
+.vscode/
+*.iml
+
+# ── 系统文件 ──
+.DS_Store        # macOS 文件夹元数据
+Thumbs.db        # Windows 缩略图缓存
+desktop.ini      # Windows 文件夹配置
+
+# ── 日志文件 ──
+*.log
+logs/
