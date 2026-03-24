@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse
+from fastapi.responses import StreamingResponse, FileResponse
 import dashscope
 from dashscope import Generation
 from pydantic import BaseModel
@@ -9,11 +9,16 @@ import os
 import json
 import sqlite3
 from dotenv import load_dotenv
+
+
 load_dotenv()
 dashscope.api_key = os.getenv("DASHSCOPE_API_KEY") ##"DASHSCOPE_API_KEY" +"你的API key"
 
-app = FastAPI()
 
+app = FastAPI()
+@app.get("/")
+async def read_index():
+    return FileResponse('index.html')
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -22,7 +27,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-DB_PATH = "chat.db"
+# 优先从环境变量读取路径，如果没有则使用本地默认值
+DB_PATH = os.getenv("DB_PATH", "chat.db")
 
 
 # ═══════════════════════════════════════════════════════
