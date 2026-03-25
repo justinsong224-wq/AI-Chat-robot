@@ -9,6 +9,8 @@ import os
 import json
 import sqlite3
 from dotenv import load_dotenv
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
 
 load_dotenv()
@@ -16,9 +18,10 @@ dashscope.api_key = os.getenv("DASHSCOPE_API_KEY") ##"DASHSCOPE_API_KEY" +"你�
 
 
 app = FastAPI()
+
 @app.get("/")
-async def read_index():
-    return FileResponse('index.html')
+def serve_frontend():
+    return FileResponse("index.html")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -224,3 +227,4 @@ def save(req: SaveRequest):
 #
 # 2. 启动服务：
 #    uvicorn main:app --reload
+#网址 https://web-production-01606.up.railway.app
