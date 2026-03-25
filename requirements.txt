@@ -1,19 +1,5 @@
-# ── 项目依赖 ──
-# 安装命令：pip install -r requirements.txt
-
-# Web 框架：提供 API 接口、路由、中间件
-fastapi==0.110.0
-
-# ASGI 服务器：负责运行 FastAPI 应用
-uvicorn==0.29.0
-
-# 数据校验：FastAPI 内部依赖，定义请求体结构（BaseModel）
-pydantic==2.6.4
-
-# 通义千问 AI SDK：调用 qwen-turbo 模型
-dashscope==1.19.3
-
-# 环境变量管理：从 .env 文件加载 API Key（可选，本地开发用）
-python-dotenv==1.0.1
-
-# 注意：sqlite3 是 Python 内置库，不需要在这里列出
+fastapi
+uvicorn
+pydantic
+dashscope
+python-dotenv
