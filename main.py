@@ -9,8 +9,7 @@ import os
 import json
 import sqlite3
 from dotenv import load_dotenv
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+
 
 
 load_dotenv()
